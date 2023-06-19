@@ -46,7 +46,7 @@
       <table>
         <thead>
           <tr>
-            <th v-for="(column, index) in state.columns" :key="index" >
+            <th v-for="(column, index) in state.columns" :key="index"  >
               <span >
                  <p>{{ column.title }}</p>
                 <a v-if="column.sortable" @click="sort(column.field)" href="#" class="sort">

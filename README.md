@@ -4,6 +4,10 @@ This template should help you get started with Vue 3 development as a ready-made
 
 ![table image, table image](/src//assets/files//amtableimage.png)
 
+## Demo
+
+[Demo](https://duckduckgo.com).
+
 ## Features
 
 - Sorting
@@ -54,7 +58,6 @@ Install amtablevuecomponenet with npm
   </AmhVueTable>
 </template>
 <script setup>
-  // import AbAm_Vue_Tabel from './components/AbAm_Vue_Tabel.vue';
   import { reactive } from "vue";
   import AmhVueTable from "amtablevuecomponenet";
   // import css
