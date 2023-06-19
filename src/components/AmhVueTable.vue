@@ -396,7 +396,12 @@ const changeTheme = () => {
 }
 onMounted(() => {
   console.log('ABDERRAMANE AMERRHI Table Component With VUEJS  Mounted YOU ARE WELCOME ')
-  state.columns.map(elem => {
+  state.columns.map((elem,index) => {
+    console.log(elem.visibility)
+    // if (elem.visibility) { 
+    //           console.log('index')
+
+    // }
     state.data.map(item => {
       if (elem.isDate == true) {
         item[elem.field] = moment(item[elem.field]).format(elem.dateMomentFormat);

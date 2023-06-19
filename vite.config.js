@@ -30,7 +30,8 @@ export default defineConfig({
         },
       },
     },
-    },
+  },
+     publicPath: process.env.NODE_ENV === 'production' ? '/amtablevuecomponenet/' : '/',
     plugins: [
       vue(),
       vueJsx(),
