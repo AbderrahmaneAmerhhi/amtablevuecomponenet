@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+
+    /* colors */
+    --amtb--first-color: #FF6A3C;
+    --amtb--second-color: #FF784F;
+    --amtb--tr-color: #FF9372;
+    --amtb--fr-color: #FFA084;
+    --amtb--fv-color: #FFAE95;
+    --amtb--white-color: #fff;
+    --amtb--first-color-light: #f8f8f8;
+    --amtb--title-color: #FF3E04;
+    --amtb--text-color: #023047;
+    --amtb--text-color-light: #b9b9b9;
+    --amtb--white-smoke-color: #F1F1F1;
+    --amtb--first-shadow: #ffecb4 0px 2px 8px 0px;
+    --amtb--night-shadow: #2d8e9d87 0px 2px 8px 0px;
+    /* font */
+    --amtb--body-font: 'Poppins', sans-serif;
+    --amtb--normal-font-size: .875rem;
+    --amtb--small-font-size: .675rem;
+    --amtb--smaller-font-size: .375rem;
+
+    /*========== Font weight ==========*/
+    --amtb--font-medium: 500;
+    --amtb--font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --amtb--z-fixed: 100;
+    --amtb--header-height: 2rem;
+    --amtb--sider-width: 5rem;
+}
+
+/* dark mode attrs  */
+:root {
+
+    /* colors */
+    --amtb--title-color-dark: #efefef;
+    --amtb--text-color-dark: #fafbfc;
+    --amtb--first-color-light-dark: #153241;
+    --amtb--body-color-dark: #212a2e;
+    --amtb--container-color-dark: #121718;
+    --amtb--dark-element-Bgcolor: #354159;
+    --amtb--first-shadow-dark: #fbf5e471 0px 2px 8px 0px;
+}
+
+body .data-container{
+    font-family: var(--amtb--body-font);
+    font-size: var(--amtb--normal-font-size);
+    background-color: var(--amtb--first-color-light);
+    color: var(--amtb--text-color);
+
+    transition: .6s ease;
+}
+
+body .data-container ul {
+    list-style: none;
+}
+
+body .data-container a {
+    text-decoration: none;
+
+}
+
+body .data-container img {
+    max-width: 100%;
+    height: auto;
+}

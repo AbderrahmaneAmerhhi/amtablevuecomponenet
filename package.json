@@ -1,0 +1,34 @@
+{
+  "name": "amtablevuecomponenet",
+  "version": "0.0.2",
+  "private": false,
+  "main": "./dist/AbAmVueTabel.umd.js",
+  "files": [
+    "dist/*",
+    "*.js",
+    "*.json"
+  ],
+  "module": "./dist/AbAmVueTabel.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/AbAmVueTabel.mjs",
+      "require": "./dist/AbAmVueTabel.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "vue": "^3.3.4",
+    "vue-flatpickr-component": "^11.0.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "vite": "^4.3.9"
+  }
+}
