@@ -64,7 +64,6 @@ Install amtablevuecomponenet with npm
   import "amtablevuecomponenet/dist/style.css";
 
   const state = reactive({
-    htmlCode: "<p>This is some HTML code</p>",
     data: [
       {
         name: "ahmed",
@@ -177,3 +176,4 @@ Install amtablevuecomponenet with npm
 | :-------- | :--------------: | --------: | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | data      | Array of objects | null , [] | true     |                                                             This attribute define the data to be displayed in the table                                                             |
 | columns   | Array of objects |  null ,[] | true     | This attribute defines which columns will be displayed in the table, if you will allow fields to be filtered or sorted by this column, if you want to hide it can be specified here |
+| config    |      object      |        {} | true     |                  This attribute defines table settings such as applying pagination, dark mode, and table search, as well as allowing data to be displayed as cards                  |
