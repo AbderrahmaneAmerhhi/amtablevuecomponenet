@@ -6,7 +6,7 @@ This template should help you get started with Vue 3 development as a ready-made
 
 ## Demo
 
-[Demo](https://duckduckgo.com).
+Discover [Demo](https://amtabledemo.netlify.app/).
 
 ## Features
 
@@ -170,3 +170,10 @@ Install amtablevuecomponenet with npm
   });
 </script>
 ```
+
+## Available props
+
+| Attribute |       Type       |   Default | required |                                                                                     description                                                                                     |
+| :-------- | :--------------: | --------: | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| data      | Array of objects | null , [] | true     |                                                             This attribute define the data to be displayed in the table                                                             |
+| columns   | Array of objects |  null ,[] | true     | This attribute defines which columns will be displayed in the table, if you will allow fields to be filtered or sorted by this column, if you want to hide it can be specified here |

@@ -5,7 +5,6 @@ import { reactive } from 'vue';
 import AmhVueTable from './components/AmhVueTable.vue';
 
 const state = reactive({
-    htmlCode: '<p>This is some HTML code</p>',
     data: [{
         name: 'ahmed',
         age: 22,
