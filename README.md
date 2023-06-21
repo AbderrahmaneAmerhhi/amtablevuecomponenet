@@ -154,6 +154,10 @@ Install amtablevuecomponenet with npm
       },
     },
   });
+
+  const add = (name) => {
+    console.log(name);
+  };
 </script>
 ```
 
@@ -270,6 +274,44 @@ This table contains objects that contain data that populates the table from the 
         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
       },
     ],
+  });
+</script>
+```
+
+## render html
+
+```html
+<template>
+  <AmhVueTable
+    :data="state.data"
+    :columns="state.columns"
+    :config="state.config"
+  >
+    <!-- render html code using v-slot -->
+    <template v-slot="{ column, row }">
+      <div v-if="column.title == 'Actions'">
+        <button>add</button> // html content
+      </div>
+    </template>
+  </AmhVueTable>
+</template>
+<script setup>
+  import { reactive } from "vue";
+  import AmhVueTable from "amtablevuecomponenet";
+  // import css
+  import "amtablevuecomponenet/dist/style.css";
+
+  const state = reactive({
+    data: [{ name: "ss" }],
+
+    columns: [
+      {
+        title: "Actions",
+        isHtml: true, // define is html code
+        EnableFilter: false,
+      },
+    ],
+    config: {},
   });
 </script>
 ```
