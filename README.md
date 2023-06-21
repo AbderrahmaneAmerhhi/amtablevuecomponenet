@@ -165,11 +165,40 @@ Install amtablevuecomponenet with npm
 | columns   | Array of objects |  null ,[] | true     | This attribute defines which columns will be displayed in the table, if you will allow fields to be filtered or sorted by this column, if you want to hide it can be specified here |
 | config    |      object      |        {} | true     |                  This attribute defines table settings such as applying pagination, dark mode, and table search, as well as allowing data to be displayed as cards                  |
 
+## Explanation of using config props
+
+Here we define the able configuration
+
+config: {
+
+EnableSearch: True or False if you want to enable all table searching,
+
+searchplaceholder: all table searching placeholder,
+
+EnableUseDarkMode: true or false if you want to use dark mode or not,
+
+SearchInFields: ["field1", "field2"], // Determine the fields that are used in the comprehensive search
+
+EnableCardsTemp: true or false if you want provide an option to switch between table view and card view,
+
+EnablePagination: true or false to enable pagination or not,
+
+PaginationConfig: { // if pagination enbled this object for config the pagination
+
+itemsPerPage: 3, // number of items by page
+
+CurrentPage: 1, // start page or current page
+
+},
+
+},
+
 ## Explanation of using columns props
 
 Here we define the columns
 
 columns: [ {
+
 title: The defined title for the column that will appear in the
 table columns,
 
