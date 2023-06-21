@@ -79,7 +79,7 @@ Install amtablevuecomponenet with npm
       {
         name: "hasan",
         age: 33,
-        adresse:'casa',
+        adresse:'Taghazout Agadir',
         aviable: 1,
         date: new Date("12/06/2022"),
         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
