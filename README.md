@@ -2,7 +2,7 @@
 
 This template should help you get started with Vue 3 development as a ready-made table that offers various services and integrates easily with various projects
 
-![table image, table image](/src//assets/files//amtableimage.png)
+<!-- ![table image, table image](/src//assets/files//amtableimage.png) -->
 
 ## Demo
 
@@ -71,6 +71,7 @@ Install amtablevuecomponenet with npm
       {
         name: "ahmed",
         age: 22,
+        adresse:'Tamri Agadir'
         aviable: 1,
         date: new Date("12/05/2022"),
         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
@@ -78,6 +79,7 @@ Install amtablevuecomponenet with npm
       {
         name: "hasan",
         age: 33,
+        adresse:'casa',
         aviable: 1,
         date: new Date("12/06/2022"),
         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
@@ -95,6 +97,18 @@ Install amtablevuecomponenet with npm
           placeholder: "filter By Name",
         },
       },
+       {
+      title: "Adresse",
+      field: "adresse",
+      hidden:true,
+      EnableFilter: true,
+      sortable: true,
+      filterOptions: {
+        InputType: "text",
+        placeholder: "filter By Name",
+      },
+    },
+
       {
         title: "AGE",
         field: "age",
