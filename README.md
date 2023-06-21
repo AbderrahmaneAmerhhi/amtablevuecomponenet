@@ -172,23 +172,37 @@ Here we define the columns
 columns: [ {
 title: The defined title for the column that will appear in the
 table columns,
-field:The field as it is in object data in order to fetch the data related to this field,EnableFilter: true or false In order to allow table
+
+field:The field as it is in object data in order to fetch the data related to this field,
+
+EnableFilter: true or false In order to allow table
 filtering using this column ,
+
 sortable: true or false In order to allow table
 sorting using this column ,
+
 isDate: true or false We specify if this field is for the date ,
+
 dateMomentFormat: if this field is for the date choose the format from momentjs between 'l', 'LL', 'LLL', 'lll', 'LLLL', 'llll', 'L',
+
 isImage: true or false We specify if this field is for the image ,
+
 isHtml: true or false We specify if this field is for the render html code ,
+
 filterOptions: An object with which we define filter settings
 {
 InputType: type of filter input text for number and string or select or date for filtring date,
+
 filterSelectOptions: [ // if InputType is select
 { title: 'select option title', value: 'select option value' },
 ]
+
 placeholder:"placeholder for filtring input element",
+
 },
+
 },
+
 ]
 
 ```html
