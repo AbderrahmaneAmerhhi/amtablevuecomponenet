@@ -1,4 +1,4 @@
-# amtablevuecomponenet
+# am_table_vuejs_componenet
 
 This template should help you get started with Vue 3 development as a ready-made table that offers various services and integrates easily with various projects
 
@@ -39,8 +39,8 @@ Discover [Demo](https://amtabledemo.netlify.app/).
 Install amtablevuecomponenet with npm
 
 ```bash or terminal
-  npm install amtablevuecomponenet
-  npm i amtablevuecomponenet
+  npm install am_table_vue
+  npm i am_table_vue
 ```
 
 ## Usage/Examples
@@ -61,120 +61,120 @@ Install amtablevuecomponenet with npm
   </AmhVueTable>
 </template>
 <script setup>
-  import { reactive } from "vue";
-  import AmhVueTable from "amtablevuecomponenet";
-  // import css
-  import "amtablevuecomponenet/dist/style.css";
+   import { reactive } from "vue";
+  import AmhVueTable from "am_table_vue";
+   // import css
+   import "am_table_vue/dist/style.css";
 
-  const state = reactive({
-    data: [
-      {
-        name: "ahmed",
-        age: 22,
-        adresse:'Tamri Agadir'
-        aviable: 1,
-        date: new Date("12/05/2022"),
-        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
-      },
-      {
-        name: "hasan",
-        age: 33,
-        adresse:'Taghazout Agadir',
-        aviable: 1,
-        date: new Date("12/06/2022"),
-        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
-      },
-    ],
-
-    columns: [
-      {
-        title: "Name",
-        field: "name",
-        EnableFilter: true,
-        sortable: true,
-        filterOptions: {
-          InputType: "text",
-          placeholder: "filter By Name",
-        },
-      },
+   const state = reactive({
+     data: [
        {
-      title: "Adresse",
-      field: "adresse",
-      hidden:true,
-      EnableFilter: true,
-      sortable: true,
-      filterOptions: {
-        InputType: "text",
-        placeholder: "filter By Name",
-      },
-    },
+         name: "ahmed",
+         age: 22,
+         adresse:'Tamri Agadir'
+         aviable: 1,
+         date: new Date("12/05/2022"),
+         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+       },
+       {
+         name: "hasan",
+         age: 33,
+         adresse:'Taghazout Agadir',
+         aviable: 1,
+         date: new Date("12/06/2022"),
+         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+       },
+     ],
 
-      {
-        title: "AGE",
-        field: "age",
-        EnableFilter: true,
-        sortable: true,
-        filterOptions: {
-          InputType: "text",
-          placeholder: "filter By age",
-        },
-      },
-      {
-        title: "Aviable",
-        field: "aviable",
-        EnableFilter: true,
-        sortable: true,
-        filterOptions: {
-          InputType: "select",
-          placeholder: "filter By aviablity",
-          filterSelectOptions: [
-            { title: "all", selected: true },
-            { title: "aviable", value: "1" },
-            { title: "non aviable", value: "0" },
-          ],
-        },
-      },
-      {
-        title: "Date",
-        field: "date",
-        isDate: true,
-        dateMomentFormat: "L", // use momentjs formats
-        EnableFilter: true,
-        filterOptions: {
-          InputType: "date",
-          placeholder: "filter By Date",
-        },
-      },
-      {
-        title: "Image",
-        field: "image",
-        Cssclass: "imageClass",
-        isImage: true,
-        EnableFilter: false,
-      },
-      {
-        title: "Actions",
-        isHtml: true,
-        EnableFilter: false,
-      },
-    ],
-    config: {
-      EnableSearch: true,
-      searchplaceholder: "Search in Table",
-      EnableUseDarkMode: true,
-      EnableCardsTemp: true,
-      SearchInFields: ["name", "age", "date"],
-      EnablePagination: true,
-      PaginationConfig: {
-        itemsPerPage: 3,
-        CurrentPage: 1,
-      },
-    },
-  });
+     columns: [
+       {
+         title: "Name",
+         field: "name",
+         EnableFilter: true,
+         sortable: true,
+         filterOptions: {
+           InputType: "text",
+           placeholder: "filter By Name",
+         },
+       },
+        {
+       title: "Adresse",
+       field: "adresse",
+       hidden:true,
+       EnableFilter: true,
+       sortable: true,
+       filterOptions: {
+         InputType: "text",
+         placeholder: "filter By Name",
+       },
+     },
 
-  const add = (name) => {
-    console.log(name);
-  };
+       {
+         title: "AGE",
+         field: "age",
+         EnableFilter: true,
+         sortable: true,
+         filterOptions: {
+           InputType: "text",
+           placeholder: "filter By age",
+         },
+       },
+       {
+         title: "Aviable",
+         field: "aviable",
+         EnableFilter: true,
+         sortable: true,
+         filterOptions: {
+           InputType: "select",
+           placeholder: "filter By aviablity",
+           filterSelectOptions: [
+             { title: "all", selected: true },
+             { title: "aviable", value: "1" },
+             { title: "non aviable", value: "0" },
+           ],
+         },
+       },
+       {
+         title: "Date",
+         field: "date",
+         isDate: true,
+         dateMomentFormat: "L", // use momentjs formats
+         EnableFilter: true,
+         filterOptions: {
+           InputType: "date",
+           placeholder: "filter By Date",
+         },
+       },
+       {
+         title: "Image",
+         field: "image",
+         Cssclass: "imageClass",
+         isImage: true,
+         EnableFilter: false,
+       },
+       {
+         title: "Actions",
+         isHtml: true,
+         EnableFilter: false,
+       },
+     ],
+     config: {
+       EnableSearch: true,
+       searchplaceholder: "Search in Table",
+       EnableUseDarkMode: true,
+       EnableCardsTemp: true,
+       SearchInFields: ["name", "age", "date"],
+       EnablePagination: true,
+       PaginationConfig: {
+         itemsPerPage: 3,
+         CurrentPage: 1,
+       },
+     },
+   });
+
+   const add = (name) => {
+     console.log(name);
+   };
 </script>
 ```
 
@@ -317,9 +317,9 @@ This table contains objects that contain data that populates the table from the 
 </template>
 <script setup>
   import { reactive } from "vue";
-  import AmhVueTable from "amtablevuecomponenet";
-  // import css
-  import "amtablevuecomponenet/dist/style.css";
+  import AmhVueTable from "am_table_vue";
+   // import css
+   import "am_table_vue/dist/style.css";
 
   const state = reactive({
    data: [
