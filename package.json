@@ -1,6 +1,6 @@
 {
   "name": "amtablevuecomponenet",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": false,
   "main": "./dist/AbAmVueTabel.umd.js",
   "files": [
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "nom run build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {

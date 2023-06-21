@@ -90,7 +90,7 @@ const state = reactive({
         {
             title: 'Name',
             field: 'name',
-            visibility:false,
+            hidden:true,
             EnableFilter: true,
             sortable: true,
             filterOptions: {

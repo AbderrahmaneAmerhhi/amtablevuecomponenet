@@ -31,6 +31,8 @@ Discover [Demo](https://amtabledemo.netlify.app/).
   - Ensure that the table or card view is responsive and adjusts to different screen sizes.
   - responsive behavior for columns, pagination, and any other relevant elements.
 - Dark mode
+- hide fields
+  - You can hide fields as simply as possible
 
 ## Installation
 
@@ -50,6 +52,7 @@ Install amtablevuecomponenet with npm
     :columns="state.columns"
     :config="state.config"
   >
+    <!-- to render the html code -->
     <template v-slot="{ column, row }">
       <div v-if="column.title == 'Actions'">
         <button @click="add(row.name)">add</button>
@@ -89,7 +92,7 @@ Install amtablevuecomponenet with npm
         sortable: true,
         filterOptions: {
           InputType: "text",
-          placeholder: "filter Bu Namee",
+          placeholder: "filter By Name",
         },
       },
       {
@@ -109,7 +112,7 @@ Install amtablevuecomponenet with npm
         sortable: true,
         filterOptions: {
           InputType: "select",
-          placeholder: "filter Bu aviablity",
+          placeholder: "filter By aviablity",
           filterSelectOptions: [
             { title: "all", selected: true },
             { title: "aviable", value: "1" },
@@ -125,7 +128,7 @@ Install amtablevuecomponenet with npm
         EnableFilter: true,
         filterOptions: {
           InputType: "date",
-          placeholder: "filter Bu Date",
+          placeholder: "filter By Date",
         },
       },
       {
@@ -208,6 +211,8 @@ table columns,
 
 field:The field as it is in object data in order to fetch the data related to this field,
 
+hidden:true or flase if you want to hide fields or not,
+
 EnableFilter: true or false In order to allow table
 filtering using this column ,
 
@@ -243,13 +248,20 @@ placeholder:"placeholder for filtring input element",
   import { reactive } from "vue";
 
   const state = reactive({
-    data: [
+    // exemple
+    columns: [
       {
-        name: "ahmed",
-        age: 22,
-        aviable: 1,
-        date: new Date("12/05/2022"),
-        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+        title: "Name",
+        field: "name",
+        isImage: false,
+        isHtml: false,
+        isDate: false,
+        EnableFilter: true,
+        sortable: true,
+        filterOptions: {
+          InputType: "text",
+          placeholder: "filter By name",
+        },
       },
     ],
   });
@@ -278,7 +290,7 @@ This table contains objects that contain data that populates the table from the 
 </script>
 ```
 
-## render html
+## hide field
 
 ```html
 <template>
@@ -287,12 +299,6 @@ This table contains objects that contain data that populates the table from the 
     :columns="state.columns"
     :config="state.config"
   >
-    <!-- render html code using v-slot -->
-    <template v-slot="{ column, row }">
-      <div v-if="column.title == 'Actions'">
-        <button>add</button> // html content
-      </div>
-    </template>
   </AmhVueTable>
 </template>
 <script setup>
@@ -302,16 +308,52 @@ This table contains objects that contain data that populates the table from the 
   import "amtablevuecomponenet/dist/style.css";
 
   const state = reactive({
-    data: [{ name: "ss" }],
+   data: [
+      {
+        name: "ahmed",
+        age: 22,
+        aviable: 1,
+        date: new Date("12/05/2022"),
+        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+      },
+
+    ],
 
     columns: [
       {
-        title: "Actions",
-        isHtml: true, // define is html code
-        EnableFilter: false,
+        title: "Name",
+        field: "name",
+        hidden:true , // to hide field name
+        EnableFilter: true,
+        sortable: true,
+        filterOptions: {
+          InputType: "text",
+          placeholder: "filter By Name",
+        },
       },
-    ],
-    config: {},
+      {
+        title: "AGE",
+        field: "age",
+        EnableFilter: true,
+        sortable: true,
+        filterOptions: {
+          InputType: "text",
+          placeholder: "filter By age",
+        },
+      },
+    ]
+     config: {
+      EnableSearch: true,
+      searchplaceholder: "Search in Table",
+      EnableUseDarkMode: true,
+      EnableCardsTemp: true,
+      SearchInFields: ["name", "age", "date"],
+      EnablePagination: true,
+      PaginationConfig: {
+        itemsPerPage: 3,
+        CurrentPage: 1,
+      },
+    },
   });
 </script>
 ```

@@ -46,7 +46,7 @@
       <table>
         <thead>
           <tr>
-            <th v-for="(column, index) in state.columns" :key="index"  >
+            <th v-show="!column.hidden" v-for="(column, index) in state.columns" :key="index"  >
               <span >
                  <p>{{ column.title }}</p>
                 <a v-if="column.sortable" @click="sort(column.field)" href="#" class="sort">
@@ -57,7 +57,7 @@
 
           </tr>
           <tr class="filter-row">
-            <th v-for="(column, index) in state.columns" :key="index">
+            <th v-show="!column.hidden" v-for="(column, index) in state.columns" :key="index">
               <input v-if="column.EnableFilter == true && column.filterOptions.InputType == 'text'"
                 v-model="state.filterStrings[column.field]" @keyup="filter(column.field)"
                 :placeholder="column.filterOptions.placeholder ? column.filterOptions.placeholder : ''" type="search"
@@ -87,7 +87,7 @@
         <tbody>
 
           <tr v-for="(item, index) in state.data" :key="index">
-            <td v-for="(column, columnindex) in state.columns" :key="columnindex">
+            <td v-show="!column.hidden" v-for="(column, columnindex) in state.columns" :key="columnindex">
               <img v-if="column.isImage" :src="item[column.field]" :alt="item[column.field] + ' image'" width="30"
                 height="30" :class="column.Cssclass ? column.Cssclass : ''">
               <div v-else-if="column.isHtml">
@@ -368,7 +368,6 @@ const Paginate = (type) => {
 const changeTheme = () => {
   const contentContainer = document.querySelector('.data-container');
 
-  // const ThemIcon = document.querySelector('.ChThembtn i')
   const ThemIcon = document.querySelector('.changeThemicon')
   if (contentContainer.classList.length) {
     contentContainer.classList.forEach(element => {
@@ -376,14 +375,10 @@ const changeTheme = () => {
         contentContainer.classList.remove('dark_mode')
         console.log(ThemIcon.innerHTML)
         ThemIcon.innerHTML = '<path d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z"></path>'
-        // ThemIcon.classList.remove('fa-sun')
-        // ThemIcon.classList.toggle('fa-moon')
       } else {
         contentContainer.classList.add('dark_mode')
         console.log(ThemIcon.innerHTML)
-        // ThemIcon.classList.remove('fa-moon')
-        // ThemIcon.classList.toggle('fa-sun')
-        ThemIcon.innerHTML = '  <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>'
+         ThemIcon.innerHTML = '  <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>'
 
 
       }
@@ -394,14 +389,11 @@ const changeTheme = () => {
     ThemIcon.classList.toggle('fa-sun')
   }
 }
+
 onMounted(() => {
   console.log('ABDERRAMANE AMERRHI Table Component With VUEJS  Mounted YOU ARE WELCOME ')
   state.columns.map((elem,index) => {
-    console.log(elem.visibility)
-    // if (elem.visibility) { 
-    //           console.log('index')
-
-    // }
+ 
     state.data.map(item => {
       if (elem.isDate == true) {
         item[elem.field] = moment(item[elem.field]).format(elem.dateMomentFormat);
