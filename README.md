@@ -79,19 +79,6 @@ Install amtablevuecomponenet with npm
         date: new Date("12/06/2022"),
         image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
       },
-      {
-        name: "adam",
-        age: 17,
-        aviable: 0,
-        date: new Date("12/05/2024"),
-        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
-      },
-      {
-        name: "abdo",
-        age: 13,
-        aviable: 0,
-        date: new Date("12/05/2024"),
-      },
     ],
 
     columns: [
@@ -177,3 +164,74 @@ Install amtablevuecomponenet with npm
 | data      | Array of objects | null , [] | true     |                                                             This attribute define the data to be displayed in the table                                                             |
 | columns   | Array of objects |  null ,[] | true     | This attribute defines which columns will be displayed in the table, if you will allow fields to be filtered or sorted by this column, if you want to hide it can be specified here |
 | config    |      object      |        {} | true     |                  This attribute defines table settings such as applying pagination, dark mode, and table search, as well as allowing data to be displayed as cards                  |
+
+## Explanation of using columns props
+
+Here we define the columns
+
+columns: [ {
+title: The defined title for the column that will appear in the
+table columns,
+field:The field as it is in object data in order to fetch the data related to this field,EnableFilter: true or false In order to allow table
+filtering using this column ,
+sortable: true or false In order to allow table
+sorting using this column ,
+isDate: true or false We specify if this field is for the date ,
+dateMomentFormat: if this field is for the date choose the format from momentjs between 'l', 'LL', 'LLL', 'lll', 'LLLL', 'llll', 'L',
+isImage: true or false We specify if this field is for the image ,
+isHtml: true or false We specify if this field is for the render html code ,
+filterOptions: An object with which we define filter settings
+{
+InputType: type of filter input text for number and string or select or date for filtring date,
+filterSelectOptions: [ // if InputType is select
+{ title: 'select option title', value: 'select option value' },
+]
+placeholder:"placeholder for filtring input element",
+},
+},
+]
+
+```html
+<script setup>
+  import { reactive } from "vue";
+
+  const state = reactive({
+    data: [
+      {
+        name: "ahmed",
+        age: 22,
+        aviable: 1,
+        date: new Date("12/05/2022"),
+        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+      },
+    ],
+  });
+</script>
+```
+
+## Explanation of using data props
+
+This table contains objects that contain data that populates the table from the field specified in the column for each field
+
+```html
+<script setup>
+  import { reactive } from "vue";
+
+  const state = reactive({
+    data: [
+      {
+        name: "ahmed",
+        age: 22,
+        aviable: 1,
+        date: new Date("12/05/2022"),
+        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+      },
+    ],
+  });
+</script>
+```
+
+## 🔗 Links
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://main--abderrahmaneamerrhiportfoliov2.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abderrahmane-amerrhi-807b40201/)
