@@ -67,3 +67,24 @@ body .data-container img {
     max-width: 100%;
     height: auto;
 }
+
+
+/********* Responsive style **************/
+
+
+/*  for smalle devices  */
+@media (max-width:768px) {
+    .data-container #content_cards {
+
+        justify-content: center;
+    }
+
+    .filter-section .filter-buttons button,
+    .ChThembtn {
+        padding: 4px;
+    }
+
+   .data-container table th span  {
+    padding: 0 42px 0 10px;
+    }
+}

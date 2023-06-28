@@ -46,6 +46,7 @@
       <table>
         <thead>
           <tr>
+            <th v-show="state.config.EnableselectOptions == true"></th>
             <th v-show="!column.hidden" v-for="(column, index) in state.columns" :key="index"  >
               <span >
                  <p>{{ column.title }}</p>
@@ -57,6 +58,10 @@
 
           </tr>
           <tr class="filter-row">
+            <th v-show="state.config.EnableselectOptions == true">
+                <input type="checkbox"  @change="OptionChecked('', 'CheckAll')" class="checkinput"   />
+
+            </th>
             <th v-show="!column.hidden" v-for="(column, index) in state.columns" :key="index">
               <input v-if="column.EnableFilter == true && column.filterOptions.InputType == 'text'"
                 v-model="state.filterStrings[column.field]" @keyup="filter(column.field)"
@@ -87,6 +92,9 @@
         <tbody>
 
           <tr v-for="(item, index) in state.data" :key="index">
+            <td v-show="state.config.EnableselectOptions == true">
+               <input type="checkbox" v-model="CheckedOptions.IndexSelected[index]" @change="OptionChecked(item,index)" class="checkinput checkOne"   />
+            </td>
             <td v-show="!column.hidden" v-for="(column, columnindex) in state.columns" :key="columnindex">
               <img v-if="column.isImage" :src="item[column.field]" :alt="item[column.field] + ' image'" width="30"
                 height="30" :class="column.Cssclass ? column.Cssclass : ''">
@@ -110,7 +118,7 @@
         </div>
         <div class="vh-infos">
           <div v-for="(column, columnindex) in state.columns" :key="index">
-            <div v-if="!column.isImage">
+            <div v-if="!column.isImage && !column.isHtml">
               <span class="vh-info">
                 <span class="info-title">{{ column.title }} : </span> <span class="info">{{
                   item[column.field] }}</span>
@@ -118,6 +126,15 @@
             </div>
           </div>
         </div>
+
+        <div>
+            <div v-for="(column, columnindex) in state.columns" :key="index">
+              <div  class="vh-actions" v-if="column.isHtml">
+               <span class="info-title">{{ column.title }} : </span> 
+                   <slot :column="column" :row="item"></slot>                
+              </div>
+            </div>
+          </div>
 
 
       </div>
@@ -147,7 +164,7 @@
 
 <script setup>
 import '../assets/main.css';
-import { onMounted, reactive, ref, computed } from 'vue';
+import { onMounted, reactive, ref, defineEmits  } from 'vue';
 import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
 import moment from 'moment';
@@ -173,6 +190,7 @@ const state = reactive({
       'llll',
     ]
   },
+  IsRowSelected:false,
   dateIsValidFilterFormat: false,
   data: props.data,
   columns: props.columns,
@@ -365,6 +383,7 @@ const Paginate = (type) => {
   }
 }
 
+// change them
 const changeTheme = () => {
   const contentContainer = document.querySelector('.data-container');
 
@@ -390,6 +409,36 @@ const changeTheme = () => {
   }
 }
 
+// option chekced 
+
+const emit  = defineEmits(['SelectedRows-Changed']);
+const CheckedOptions = reactive({
+  SelectedRows :[
+
+  ],
+  IndexSelected: {},
+})
+const OptionChecked = (item, index) => { 
+  if (index == 'CheckAll') {
+    var inputsCheck = document.querySelectorAll('.checkinput.checkOne');
+    inputsCheck.forEach((element,ind) => {
+      if (element.checked == true) {
+          delete CheckedOptions.SelectedRows[ind];
+          element.checked = false;
+      } else { 
+        element.checked = true;
+         CheckedOptions.SelectedRows[ind] = state.data[ind];
+      }
+    })
+  } else {
+    if (CheckedOptions.IndexSelected[index]) { // ila kan true donc mchecke kan false donc check is false
+      CheckedOptions.SelectedRows[index] = item;
+    } else {
+      delete CheckedOptions.SelectedRows[index]; // delete for delete in object
+    }
+  }
+    emit('SelectedRows-Changed', CheckedOptions.SelectedRows)
+}
 onMounted(() => {
   console.log('ABDERRAMANE AMERRHI Table Component With VUEJS  Mounted YOU ARE WELCOME ')
   state.columns.map((elem,index) => {
@@ -455,6 +504,7 @@ onMounted(() => {
   border: none;
   background: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
 }
 
 .data-container table th span {
@@ -595,7 +645,14 @@ a.sort {
   font-weight: 500;
 }
 
-
+/* cards actions */
+.data-container #content_cards .vh-actions{
+      display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
 
 /************ dark mode  cards ****************8*/
 
@@ -611,7 +668,8 @@ a.sort {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
+    row-gap: 16px;
 }
 
 .filter-section .theme_filter {
@@ -660,7 +718,6 @@ a.sort {
   cursor: pointer;
   transition: .5s;
 }
-
 .filter-section .filter-buttons button {
   box-shadow: var(--amtb--first-shadow);
 }

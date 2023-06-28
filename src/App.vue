@@ -90,7 +90,7 @@ const state = reactive({
         {
             title: 'Name',
             field: 'name',
-            hidden:true,
+            hidden:false,
             EnableFilter: true,
             sortable: true,
             filterOptions: {
@@ -159,6 +159,7 @@ const state = reactive({
     ],
     config: {
         EnableSearch: true,
+        EnableselectOptions:true,
         searchplaceholder: 'Search in Table',
         EnableUseDarkMode: true,
         EnableCardsTemp: true,
@@ -171,20 +172,21 @@ const state = reactive({
 
     }
 })
+const GetCheckedData = (data) => { 
+    // selected data 
+    console.log(data)
 
+}
 </script>
 
 <template>
-    <h1>
-        Hello
-        <AmhVueTable :data="state.data" :columns="state.columns" :config="state.config">
+        <AmhVueTable :data="state.data" :columns="state.columns" :config="state.config" @SelectedRows-Changed="GetCheckedData">
             <template v-slot="{ column, row }">
                 <div v-if="column.title == 'Actions'">
                     <button @click="add(row.name)"> add</button>
                 </div>
             </template>
         </AmhVueTable>
-    </h1>
 </template>
 
 <style scoped>

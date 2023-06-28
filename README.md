@@ -33,6 +33,8 @@ Discover [Demo](https://amtabledemo.netlify.app/).
 - Dark mode
 - hide fields
   - You can hide fields as simply as possible
+- Selected Rows
+  - You can Select Rows by Checkbox for export or perform other operations
 
 ## Installation
 
@@ -186,6 +188,12 @@ Install amtablevuecomponenet with npm
 | columns   | Array of objects |  null ,[] | true     | This attribute defines which columns will be displayed in the table, if you will allow fields to be filtered or sorted by this column, if you want to hide it can be specified here |
 | config    |      object      |        {} | true     |                  This attribute defines table settings such as applying pagination, dark mode, and table search, as well as allowing data to be displayed as cards                  |
 
+## Available Events
+
+| Events                |                                          Description                                           |
+| :-------------------- | :--------------------------------------------------------------------------------------------: |
+| @SelectedRows-Changed | This event occurs whenever a row selection when you enbale EnableselectOption in cofnfig props |
+
 ## Explanation of using config props
 
 Here we define the able configuration
@@ -230,12 +238,14 @@ hidden:true or flase if you want to hide fields or not,
 EnableFilter: true or false In order to allow table
 filtering using this column ,
 
+EnableselectOptions: true or false to allow check rows for export or other operations ,
+
 sortable: true or false In order to allow table
 sorting using this column ,
 
 isDate: true or false We specify if this field is for the date ,
 
-dateMomentFormat: if this field is for the date choose the format from momentjs between 'l', 'LL', 'LLL', 'lll', 'LLLL', 'llll', 'L',
+dateMomentFormat: this field is for the date choose the format from momentjs between 'l', 'LL', 'LLL', 'lll', 'LLLL', 'llll', 'L',
 
 isImage: true or false We specify if this field is for the image ,
 
@@ -369,6 +379,83 @@ This table contains objects that contain data that populates the table from the 
       },
     },
   });
+</script>
+```
+
+## Select Rows field
+
+```html
+<template>
+  <!-- @SelectedRows-Changed : This event occurs whenever a row selection -->
+  <AmhVueTable
+    :data="state.data"
+    :columns="state.columns"
+    :config="state.config"
+    @SelectedRows-Changed="GetCheckedData"
+  >
+  </AmhVueTable>
+</template>
+<script setup>
+  import { reactive } from "vue";
+  import AmhVueTable from "am_table_vue";
+   // import css
+   import "am_table_vue/dist/style.css";
+
+  const state = reactive({
+   data: [
+      {
+        name: "ahmed",
+        age: 22,
+        aviable: 1,
+        date: new Date("12/05/2022"),
+        image: "https://via.placeholder.com/640x480.png/0033aa?text=dolore",
+      },
+
+    ],
+
+    columns: [
+      {
+        title: "Name",
+        field: "name",
+        hidden:false ,
+        EnableFilter: true,
+        sortable: true,
+        filterOptions: {
+          InputType: "text",
+          placeholder: "filter By Name",
+        },
+      },
+      {
+        title: "AGE",
+        field: "age",
+        EnableFilter: true,
+        sortable: true,
+        filterOptions: {
+          InputType: "text",
+          placeholder: "filter By age",
+        },
+      },
+    ]
+     config: {
+      EnableSearch: true,
+      searchplaceholder: "Search in Table",
+      EnableUseDarkMode: true,
+      EnableCardsTemp: true,
+      SearchInFields: ["name", "age", "date"],
+      EnablePagination: true,
+      EnableselectOptions:true, // Enable Select Rows
+      PaginationConfig: {
+        itemsPerPage: 3,
+        CurrentPage: 1,
+      },
+    },
+  });
+
+  // for use selected data :
+  const GetCheckedData = (data) => {
+    // selected data
+    console.log(data)
+  }
 </script>
 ```
 
