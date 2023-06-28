@@ -1,0 +1,401 @@
+/************ table stye ****************/
+
+.table-responsive {
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+
+/* table content  */
+.data-container table {
+    width: 100%;
+    transition: all 1s;
+
+}
+
+.data-container .filter-row th {
+    background: transparent !important;
+    padding: 2px;
+}
+
+.data-container .filter-row th .filter-element {
+    width: 100%;
+    border: none;
+    outline: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-left: 3px;
+}
+
+.data-container .filter-row th .date-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-container .filter-row th .date-filter-container .clear-date {
+    border: none;
+    background: transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    cursor: pointer;
+}
+
+.data-container table th span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    vertical-align: middle;
+    text-wrap: nowrap
+}
+
+.data-container table th,
+.data-container table td {
+    text-align: start;
+}
+
+.data-container table tr:first-child th:first-child {
+    border-radius: 5px 0 0 5px;
+    padding-left: 4px;
+}
+
+.data-container table tr:first-child th:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.data-container table thead {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.data-container table th {
+    background: var(--amtb--white-color);
+    font-size: 13px;
+    height: 30px;
+    font-weight: 500;
+
+}
+
+.data-container table tbody {
+    transition: max-height 2s;
+}
+
+.data-container table td {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 10px 0 0 2px;
+}
+
+.data-container nav {
+    display: flex !important;
+    justify-content: start !important;
+    padding: 30px 0 0 0 !important;
+
+}
+
+
+a.sort {
+    border: none;
+    background: transparent;
+    text-decoration: none;
+}
+
+/**** table content  dark mode  *******/
+
+.data-container.dark_mode {
+
+    background-color: var(--amtb--body-color-dark);
+    color: var(--amtb--text-color-dark);
+
+}
+
+
+
+
+
+.data-container.dark_mode table thead {
+
+    box-shadow: rgba(255, 255, 255, 0.157) 0px 7px 29px 0px;
+
+}
+
+.data-container.dark_mode table th {
+    background: var(--amtb--dark-element-Bgcolor);
+}
+
+
+.dark_mode .filter-row th .date-filter-container .clear-date .clearIcon {
+    fill: var(--amtb--text-color-dark) !important;
+
+}
+
+/************************** cards content *****************/
+
+.data-container #content_cards {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    row-gap: 7px;
+    column-gap: 6px;
+}
+
+.data-container #content_cards .card-conetnt {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.data-container #content_cards .card-conetnt img {
+    height: 200px
+}
+
+.data-container #content_cards .card-conetnt .vh-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 10px;
+}
+
+.data-container #content_cards .card-conetnt .vh-infos .vh-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-container #content_cards .card-conetnt .vh-infos .vh-info .info-title {
+    font-size: 12px;
+    font-weight: 200;
+    font-family: system-ui;
+}
+
+.data-container #content_cards .card-conetnt .vh-infos .vh-info .info {
+    padding: 0 5px 0 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* cards actions */
+.data-container #content_cards .vh-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+/************ dark mode  cards ****************8*/
+
+.dark_mode #content_cards .card-conetnt {
+
+    background: var(--amtb--dark-element-Bgcolor);
+    box-shadow: rgba(255, 255, 255, 0.051) 0px 7px 29px 0px;
+}
+
+/******************* Filter Section **********************/
+.filter-section {
+    padding: 10px 10px 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 16px;
+}
+
+.filter-section .theme_filter {
+    display: flex;
+    align-items: center;
+}
+
+.filter-section .theme_filter .ChThembtn {
+    margin: 0 5px 0 0;
+}
+
+.input-group-search {
+    display: flex;
+    align-items: center;
+}
+
+.input-group-search .search_input {
+    outline: none !important;
+    margin: 0;
+    padding: 2px 10px 4px 24px;
+    width: 300px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.input-group-search {
+    position: relative;
+}
+
+
+.input-group-search .searchicon {
+    position: absolute;
+    left: 2px;
+    top: 4px;
+}
+
+.filter-section .filter-buttons button,
+.ChThembtn {
+    padding: 7px;
+    border: none;
+    background: transparent;
+    color: var(--amtb--text-color) !important;
+    font-size: 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.filter-section .filter-buttons button {
+    box-shadow: var(--amtb--first-shadow);
+}
+
+.data-container .ChThembtn {
+    box-shadow: var(--amtb--night-shadow);
+}
+
+.filter-section .filter-buttons button:hover {
+    background: #ffecb4;
+    color: var(--amtb--title-color) !important;
+}
+
+.data-container .ChThembtn:hover {
+    background: #0E2954;
+
+}
+
+.data-container .ChThembtn .changeThemicon {
+    fill: #1F6E8C !important;
+}
+
+
+
+
+/************ filter section dark mode *************/
+.data-container.dark_mode .filter-row th .filter-element {
+    background: var(--amtb--dark-element-Bgcolor);
+    color: var(--amtb--text-color-dark);
+}
+
+.dark_mode .input-group-search .searchicon {
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    fill: var(--amtb--text-color-dark) !important;
+
+}
+
+.data-container.dark_mode .filter-section .filter-buttons button {
+    color: var(--amtb--text-color-dark) !important;
+    box-shadow: var(--amtb--first-shadow-dark);
+}
+
+.data-container.dark_mode .filter-section .filter-buttons button .datatypeicon {
+    fill: var(--amtb--text-color-dark) !important;
+
+}
+
+.data-container.dark_mode .ChThembtn {
+    box-shadow: none;
+
+}
+
+.data-container.dark_mode .ChThembtn .changeThemicon {
+    fill: var(--amtb--second-color) !important;
+}
+
+.data-container.dark_mode .filter-section .filter-buttons button:hover .datatypeiconr {
+    box-shadow: none !important;
+    color: var(--amtb--second-color) !important;
+    fill: var(--amtb--second-color) !important;
+
+}
+
+.data-container.dark_mode .ChThembtn .changeThemicon:hover {
+    fill: var(--amtb--text-color-dark) !important;
+
+}
+
+.data-container.dark_mode a.sort .sortIcon {
+    fill: var(--amtb--text-color-dark) !important;
+}
+
+.data-container.dark_mode .input-group-search .search_input {
+    color: var(--amtb--text-color-dark) !important;
+    box-shadow: none;
+    background: var(--amtb--dark-element-Bgcolor);
+}
+
+
+/*************** Pagination style **********/
+nav .pagination_section button {
+    cursor: pointer;
+}
+
+nav .pagination_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 12px;
+    column-gap: 20px;
+    line-height: 35px;
+}
+
+nav .pagination_section .page-link {
+    color: var(--amtb--text-color) !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    transition: .3s ease-in-out;
+}
+
+nav .pagination_section .page-link:active,
+nav .pagination_section .page-link:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none
+}
+
+nav .pagination_section .active>.page-link,
+nav .pagination_section .page-link.active {
+    background: var(--amtb--tr-color) !important;
+    color: var(--amtb--first-color-light) !important;
+    width: 35px !important;
+    height: 35px !important;
+    text-align: center !important;
+}
+
+
+nav .pagination_section .page-link.next-prev {
+    font-size: 22px;
+}
+
+/********* pagination dark mode **********/
+.data-container.dark_mode nav .pagination_section .page-link {
+    color: var(--amtb--text-color-dark) !important;
+
+}
+
+
+/****************   icons **************************/
+
+.datatypeicon {
+    fill: rgba(0, 0, 0, 1);
+}
