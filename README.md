@@ -2,7 +2,9 @@
 
 This template should help you get started with Vue 3 development as a ready-made table that offers various services and integrates easily with various projects
 
-![table image, table image](src/assets/files//amtableimage.png)
+<!-- ![table image, table image](src/assets/files//amtableimage.png) -->
+
+![table image, table image](https://github.com/AbderrahmaneAmerhhi/amtablevuecomponenet/blob/main/src/assets/files/amtableimage.png)
 
 ## Demo
 

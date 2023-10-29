@@ -1,6 +1,6 @@
 {
   "name": "am_table_vue",
-  "version": "1.2.2",
+  "version": "2.2.2",
   "private": false,
   "main": "./dist/AbAmVueTabel.umd.js",
   "files": [
