@@ -8,7 +8,7 @@ This template should help you get started with Vue 3 development as a ready-made
 
 ## Demo
 
-Discover [Demo](https://amtabledemo.netlify.app/).
+Discover [Demo](https://amtabledemo.netlify.app/tableView#/).
 
 ## Features
 
