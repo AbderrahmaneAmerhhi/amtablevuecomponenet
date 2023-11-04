@@ -6,6 +6,9 @@ This template should help you get started with Vue 3 development as a ready-made
 
 ![table image, table image](https://github.com/AbderrahmaneAmerhhi/amtablevuecomponenet/blob/main/src/assets/files/amtableimage.png)
 
+[Package](https://www.npmjs.com/package/dynamic_cards_componenets)
+[![Version]ggg]
+
 ## Demo
 
 Discover [Demo](https://amtabledemo.netlify.app/tableView#/).
